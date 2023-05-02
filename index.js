@@ -1,13 +1,12 @@
 const express = require("express")
 const app = express()
 app.use(express.json())
-const {connection} = require("./config/db")
-const cors = require("cors")
+const cors =require("cors")
 app.use(cors())
-require("dotenv").config()
 const {userRouter} = require("./routes/user.route")
 const {postRouter} = require("./routes/post.route")
-
+const{ connection} = require("./config/db")
+require("dotenv").config()
 
 app.get("/",(req,res)=>{
     res.send("Welcome")
